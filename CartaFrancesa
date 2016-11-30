@@ -1,0 +1,205 @@
+import java.awt.Image;
+import java.awt.Toolkit;
+
+public class CartaFrancesa extends Carta{
+	private enum Palo{
+		PICAS,
+		CORAZONES,
+		TREVOLES,
+		DIAMANTES
+	};
+	
+	private Palo palo;
+	
+	public CartaFrancesa(int valor,Palo palo){
+		super(valor);
+		Image imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagendefecto");
+		this.palo=palo;
+		switch(palo){
+		case PICAS:
+			switch(valor){
+			case 1:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenPICAS01");
+				break;
+			case 2:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenPICAS02");
+				break;
+			case 3:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenPICAS03");
+				break;
+			case 4:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenPICAS04");
+				break;
+			case 5:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenPICAS05");
+				break;
+			case 6:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenPICAS06");
+				break;
+			case 7:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenPICAS07");
+				break;
+			case 8:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenPICAS08");
+				break;
+			case 9:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenPICAS09");
+				break;
+			case 10:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenPICAS10");
+				break;
+			case 11:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenPICAS11");
+				break;
+			case 12:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenPICAS12");
+				break;
+			case 13:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenPICAS13");
+				break;
+			}
+			break;
+		case CORAZONES:
+			switch(valor){
+			case 1:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenCORAZONES01");
+				break;
+			case 2:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenCORAZONES02");
+				break;
+			case 3:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenCORAZONES03");
+				break;
+			case 4:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenCORAZONES04");
+				break;
+			case 5:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenCORAZONES05");
+				break;
+			case 6:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenCORAZONES06");
+				break;
+			case 7:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenCORAZONES07");
+				break;
+			case 8:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenCORAZONES08");
+				break;
+			case 9:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenCORAZONES09");
+				break;
+			case 10:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenCORAZONES10");
+				break;
+			case 11:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenCORAZONES11");
+				break;
+			case 12:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenCORAZONES12");
+				break;
+			case 13:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenCORAZONES13");
+				break;
+			}
+			break;
+		case TREVOLES:
+			switch(valor){
+			case 1:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenTREVOLES01");
+				break;
+			case 2:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenTREVOLES02");
+				break;
+			case 3:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenTREVOLES03");
+				break;
+			case 4:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenTREVOLES04");
+				break;
+			case 5:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenTREVOLES05");
+				break;
+			case 6:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenTREVOLES06");
+				break;
+			case 7:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenTREVOLES07");
+				break;
+			case 8:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenTREVOLES08");
+				break;
+			case 9:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenTREVOLES09");
+				break;
+			case 10:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenTREVOLES10");
+				break;
+			case 11:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenTREVOLES11");
+				break;
+			case 12:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenTREVOLES12");
+				break;
+			case 13:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenTREVOLES13");
+				break;
+			}
+			break;
+		case DIAMANTES:
+			switch(valor){
+			case 1:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenDIAMANTES01");
+				break;
+			case 2:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenDIAMANTES02");
+				break;
+			case 3:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenDIAMANTES03");
+				break;
+			case 4:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenDIAMANTES04");
+				break;
+			case 5:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenDIAMANTES05");
+				break;
+			case 6:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenDIAMANTES06");
+				break;
+			case 7:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenDIAMANTES07");
+				break;
+			case 8:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenDIAMANTES08");
+				break;
+			case 9:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenDIAMANTES09");
+				break;
+			case 10:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenDIAMANTES10");
+				break;
+			case 11:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenDIAMANTES11");
+				break;
+			case 12:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenDIAMANTES12");
+				break;
+			case 13:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaFra/imagenDIAMANTES13");
+				break;
+			}
+			break;
+	}
+		setImagen(imagen);
+	}
+	
+	
+	
+	public final void setValor(int valor){
+		this.valor=valor;
+	}
+	
+	public final void ocultar(){
+		
+	}
+
+}
