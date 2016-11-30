@@ -1,0 +1,19 @@
+import java.awt.Image;
+import java.awt.Toolkit;
+
+public class Carta {
+	private int valor;
+	private Image imagen;
+	
+	public Carta(int valor){
+		this.valor=valor;
+	}
+	
+	public final Image mostrar(){
+		return imagen;
+	}
+	
+	public void setImagen(Image imagen){
+		this.imagen=imagen;
+	}
+}
