@@ -1,8 +1,7 @@
 import java.awt.Image;
-import java.awt.Toolkit;
 
-public class Carta {
-	private int valor;
+public class Carta{
+	protected int valor;
 	private Image imagen;
 	
 	public Carta(int valor){
@@ -13,7 +12,7 @@ public class Carta {
 		return imagen;
 	}
 	
-	public final void setImagen(Image imagen){
+	protected void setImagen(Image imagen){
 		this.imagen=imagen;
 	}
 }
