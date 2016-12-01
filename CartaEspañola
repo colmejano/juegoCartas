@@ -1,0 +1,179 @@
+import javax.swing.*;
+public class CartaEspañola extends Carta{
+	public enum Palo{
+		ORO,
+		BASTOS,
+		ESPADAS,
+		COPAS
+	};
+	private Palo palo;
+	
+	public CartaEspañola(int valor,Palo palo){
+		super(valor);
+		ImageIcon imagen = null;
+		this.palo=palo;
+		switch(palo){
+		case ORO:
+			switch(valor){
+			case 1:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenORO01.jpg");
+				break;
+			case 2:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenORO02.jpg");
+				break;
+			case 3:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenORO03");
+				break;
+			case 4:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenORO04");
+				break;
+			case 5:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenORO05");
+				break;
+			case 6:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenORO06");
+				break;
+			case 7:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenORO07");
+				break;
+			case 8:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenORO08");
+				break;
+			case 9:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenORO09");
+				break;
+			case 10:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenORO10");
+				break;
+			case 11:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenORO11");
+				break;
+			case 12:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenORO12");
+				break;
+			}
+			break;
+		case BASTOS:
+			switch(valor){
+			case 1:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenBASTOS01");
+				break;
+			case 2:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenBASTOS02");
+				break;
+			case 3:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenBASTOS03");
+				break;
+			case 4:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenBASTOS04");
+				break;
+			case 5:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenBASTOS05");
+				break;
+			case 6:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenBASTOS06");
+				break;
+			case 7:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenBASTOS07");
+				break;
+			case 8:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenBASTOS08");
+				break;
+			case 9:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenBASTOS09");
+				break;
+			case 10:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenBASTOS10");
+				break;
+			case 11:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenBASTOS11");
+				break;
+			case 12:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenBASTOS12");
+				break;
+			}
+			break;
+		case ESPADAS:
+			switch(valor){
+			case 1:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenESPADAS01");
+				break;
+			case 2:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenESPADAS02");
+				break;
+			case 3:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenESPADAS03");
+				break;
+			case 4:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenESPADAS04");
+				break;
+			case 5:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenESPADAS05");
+				break;
+			case 6:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenESPADAS06");
+				break;
+			case 7:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenESPADAS07");
+				break;
+			case 8:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenESPADAS08");
+				break;
+			case 9:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenESPADAS09");
+				break;
+			case 10:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenESPADAS10");
+				break;
+			case 11:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenESPADAS11");
+				break;
+			case 12:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenESPADAS12");
+				break;
+			}
+		case COPAS:
+			switch(valor){
+			case 1:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenCOPAS01");
+				break;
+			case 2:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenCOPAS02");
+				break;
+			case 3:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenCOPAS03");
+				break;
+			case 4:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenCOPAS04");
+				break;
+			case 5:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenCOPAS05");
+				break;
+			case 6:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenCOPAS06");
+				break;
+			case 7:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenCOPAS07");
+				break;
+			case 8:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenCOPAS08");
+				break;
+			case 9:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenCOPAS07");
+				break;
+			case 10:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenCOPAS10");
+				break;
+			case 11:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenCOPAS11");
+				break;
+			case 12:
+				imagen = new ImageIcon("src/imgCartaEsp/imagenCOPAS12");
+				break;
+			}
+		}
+		setImagen(imagen);
+	}
+	
+	
+}
