@@ -38,6 +38,12 @@ public class CartaEspañola extends Carta{
 			case 7:
 				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaEsp/imagenORO07");
 				break;
+			case 8:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaEsp/imagenORO08");
+				break;
+			case 9:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaEsp/imagenORO09");
+				break;
 			case 10:
 				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaEsp/imagenORO10");
 				break;
@@ -71,6 +77,12 @@ public class CartaEspañola extends Carta{
 				break;
 			case 7:
 				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaEsp/imagenBASTOS07");
+				break;
+			case 8:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaEsp/imagenBASTOS08");
+				break;
+			case 9:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaEsp/imagenBASTOS09");
 				break;
 			case 10:
 				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaEsp/imagenBASTOS10");
@@ -106,6 +118,12 @@ public class CartaEspañola extends Carta{
 			case 7:
 				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaEsp/imagenESPADAS07");
 				break;
+			case 8:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaEsp/imagenESPADAS08");
+				break;
+			case 9:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaEsp/imagenESPADAS09");
+				break;
 			case 10:
 				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaEsp/imagenESPADAS10");
 				break;
@@ -139,6 +157,12 @@ public class CartaEspañola extends Carta{
 			case 7:
 				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaEsp/imagenCOPAS07");
 				break;
+			case 8:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaEsp/imagenCOPAS08");
+				break;
+			case 9:
+				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaEsp/imagenCOPAS07");
+				break;
 			case 10:
 				imagen = Toolkit.getDefaultToolkit().getImage("imgCartaEsp/imagenCOPAS10");
 				break;
@@ -155,3 +179,4 @@ public class CartaEspañola extends Carta{
 	
 	
 }
+
