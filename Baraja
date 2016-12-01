@@ -1,0 +1,7 @@
+public abstract class Baraja {
+	public Baraja(){
+		
+	}
+	
+	abstract public void mezclar();
+}
