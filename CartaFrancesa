@@ -1,7 +1,7 @@
 import javax.swing.*;
 
 public class CartaFrancesa extends Carta{
-	private enum Palo{
+	public enum Palo{
 		PICAS,
 		CORAZONES,
 		TREVOLES,
@@ -12,178 +12,178 @@ public class CartaFrancesa extends Carta{
 	
 	public CartaFrancesa(int valor,Palo palo){
 		super(valor);
-		ImageIcon imagen = new ImageIcon("src/imgCartaFra/imagendefecto");
+		ImageIcon imagen = new ImageIcon("src/imgCartaFra/imagendefecto.jpg");
 		this.palo=palo;
 		switch(palo){
 		case PICAS:
 			switch(valor){
 			case 1:
-				imagen = new ImageIcon("src/imgCartaFra/imagenPICAS01");
+				imagen = new ImageIcon("src/imgCartaFra/imagenPICAS01.jpg");
 				break;
 			case 2:
-				imagen = new ImageIcon("src/imgCartaFra/imagenPICAS02");
+				imagen = new ImageIcon("src/imgCartaFra/imagenPICAS02.jpg");
 				break;
 			case 3:
-				imagen = new ImageIcon("src/imgCartaFra/imagenPICAS03");
+				imagen = new ImageIcon("src/imgCartaFra/imagenPICAS03.jpg");
 				break;
 			case 4:
-				imagen = new ImageIcon("src/imgCartaFra/imagenPICAS04");
+				imagen = new ImageIcon("src/imgCartaFra/imagenPICAS04.jpg");
 				break;
 			case 5:
-				imagen = new ImageIcon("src/imgCartaFra/imagenPICAS05");
+				imagen = new ImageIcon("src/imgCartaFra/imagenPICAS05.jpg");
 				break;
 			case 6:
-				imagen = new ImageIcon("src/imgCartaFra/imagenPICAS06");
+				imagen = new ImageIcon("src/imgCartaFra/imagenPICAS06.jpg");
 				break;
 			case 7:
-				imagen = new ImageIcon("src/imgCartaFra/imagenPICAS07");
+				imagen = new ImageIcon("src/imgCartaFra/imagenPICAS07.jpg");
 				break;
 			case 8:
-				imagen = new ImageIcon("src/imgCartaFra/imagenPICAS08");
+				imagen = new ImageIcon("src/imgCartaFra/imagenPICAS08.jpg");
 				break;
 			case 9:
-				imagen = new ImageIcon("src/imgCartaFra/imagenPICAS09");
+				imagen = new ImageIcon("src/imgCartaFra/imagenPICAS09.jpg");
 				break;
 			case 10:
-				imagen = new ImageIcon("src/imgCartaFra/imagenPICAS10");
+				imagen = new ImageIcon("src/imgCartaFra/imagenPICAS10.jpg");
 				break;
 			case 11:
-				imagen = new ImageIcon("src/imgCartaFra/imagenPICAS11");
+				imagen = new ImageIcon("src/imgCartaFra/imagenPICAS11.jpg");
 				break;
 			case 12:
-				imagen = new ImageIcon("src/imgCartaFra/imagenPICAS12");
+				imagen = new ImageIcon("src/imgCartaFra/imagenPICAS12.jpg");
 				break;
 			case 13:
-				imagen = new ImageIcon("src/imgCartaFra/imagenPICAS13");
+				imagen = new ImageIcon("src/imgCartaFra/imagenPICAS13.jpg");
 				break;
 			}
 			break;
 		case CORAZONES:
 			switch(valor){
 			case 1:
-				imagen = new ImageIcon("src/imgCartaFra/imagenCORAZONES01");
+				imagen = new ImageIcon("src/imgCartaFra/imagenCORAZONES01.jpg");
 				break;
 			case 2:
-				imagen = new ImageIcon("src/imgCartaFra/imagenCORAZONES02");
+				imagen = new ImageIcon("src/imgCartaFra/imagenCORAZONES02.jpg");
 				break;
 			case 3:
-				imagen = new ImageIcon("src/imgCartaFra/imagenCORAZONES03");
+				imagen = new ImageIcon("src/imgCartaFra/imagenCORAZONES03.jpg");
 				break;
 			case 4:
-				imagen = new ImageIcon("src/imgCartaFra/imagenCORAZONES04");
+				imagen = new ImageIcon("src/imgCartaFra/imagenCORAZONES04.jpg");
 				break;
 			case 5:
-				imagen = new ImageIcon("src/imgCartaFra/imagenCORAZONES05");
+				imagen = new ImageIcon("src/imgCartaFra/imagenCORAZONES05.jpg");
 				break;
 			case 6:
-				imagen = new ImageIcon("src/imgCartaFra/imagenCORAZONES06");
+				imagen = new ImageIcon("src/imgCartaFra/imagenCORAZONES06.jpg");
 				break;
 			case 7:
-				imagen = new ImageIcon("src/imgCartaFra/imagenCORAZONES07");
+				imagen = new ImageIcon("src/imgCartaFra/imagenCORAZONES07.jpg");
 				break;
 			case 8:
-				imagen = new ImageIcon("src/imgCartaFra/imagenCORAZONES08");
+				imagen = new ImageIcon("src/imgCartaFra/imagenCORAZONES08.jpg");
 				break;
 			case 9:
-				imagen = new ImageIcon("src/imgCartaFra/imagenCORAZONES09");
+				imagen = new ImageIcon("src/imgCartaFra/imagenCORAZONES09.jpg");
 				break;
 			case 10:
-				imagen = new ImageIcon("src/imgCartaFra/imagenCORAZONES10");
+				imagen = new ImageIcon("src/imgCartaFra/imagenCORAZONES10.jpg");
 				break;
 			case 11:
-				imagen = new ImageIcon("src/imgCartaFra/imagenCORAZONES11");
+				imagen = new ImageIcon("src/imgCartaFra/imagenCORAZONES11.jpg");
 				break;
 			case 12:
-				imagen = new ImageIcon("src/imgCartaFra/imagenCORAZONES12");
+				imagen = new ImageIcon("src/imgCartaFra/imagenCORAZONES12.jpg");
 				break;
 			case 13:
-				imagen = new ImageIcon("src/imgCartaFra/imagenCORAZONES13");
+				imagen = new ImageIcon("src/imgCartaFra/imagenCORAZONES13.jpg");
 				break;
 			}
 			break;
 		case TREVOLES:
 			switch(valor){
 			case 1:
-				imagen = new ImageIcon("src/imgCartaFra/imagenTREVOLES01");
+				imagen = new ImageIcon("src/imgCartaFra/imagenTREVOLES01.jpg");
 				break;
 			case 2:
-				imagen = new ImageIcon("src/imgCartaFra/imagenTREVOLES02");
+				imagen = new ImageIcon("src/imgCartaFra/imagenTREVOLES02.jpg");
 				break;
 			case 3:
-				imagen = new ImageIcon("src/imgCartaFra/imagenTREVOLES03");
+				imagen = new ImageIcon("src/imgCartaFra/imagenTREVOLES03.jpg");
 				break;
 			case 4:
-				imagen = new ImageIcon("src/imgCartaFra/imagenTREVOLES04");
+				imagen = new ImageIcon("src/imgCartaFra/imagenTREVOLES04.jpg");
 				break;
 			case 5:
-				imagen = new ImageIcon("src/imgCartaFra/imagenTREVOLES05");
+				imagen = new ImageIcon("src/imgCartaFra/imagenTREVOLES05.jpg");
 				break;
 			case 6:
-				imagen = new ImageIcon("src/imgCartaFra/imagenTREVOLES06");
+				imagen = new ImageIcon("src/imgCartaFra/imagenTREVOLES06.jpg");
 				break;
 			case 7:
-				imagen = new ImageIcon("src/imgCartaFra/imagenTREVOLES07");
+				imagen = new ImageIcon("src/imgCartaFra/imagenTREVOLES07.jpg");
 				break;
 			case 8:
-				imagen = new ImageIcon("src/imgCartaFra/imagenTREVOLES08");
+				imagen = new ImageIcon("src/imgCartaFra/imagenTREVOLES08.jpg");
 				break;
 			case 9:
-				imagen = new ImageIcon("src/imgCartaFra/imagenTREVOLES09");
+				imagen = new ImageIcon("src/imgCartaFra/imagenTREVOLES09.jpg");
 				break;
 			case 10:
-				imagen = new ImageIcon("src/imgCartaFra/imagenTREVOLES10");
+				imagen = new ImageIcon("src/imgCartaFra/imagenTREVOLES10.jpg");
 				break;
 			case 11:
-				imagen = new ImageIcon("src/imgCartaFra/imagenTREVOLES11");
+				imagen = new ImageIcon("src/imgCartaFra/imagenTREVOLES11.jpg");
 				break;
 			case 12:
-				imagen = new ImageIcon("src/imgCartaFra/imagenTREVOLES12");
+				imagen = new ImageIcon("src/imgCartaFra/imagenTREVOLES12.jpg");
 				break;
 			case 13:
-				imagen = new ImageIcon("src/imgCartaFra/imagenTREVOLES13");
+				imagen = new ImageIcon("src/imgCartaFra/imagenTREVOLES13.jpg");
 				break;
 			}
 			break;
 		case DIAMANTES:
 			switch(valor){
 			case 1:
-				imagen = new ImageIcon("src/imgCartaFra/imagenDIAMANTES01");
+				imagen = new ImageIcon("src/imgCartaFra/imagenDIAMANTES01.jpg");
 				break;
 			case 2:
-				imagen = new ImageIcon("src/imgCartaFra/imagenDIAMANTES02");
+				imagen = new ImageIcon("src/imgCartaFra/imagenDIAMANTES02.jpg");
 				break;
 			case 3:
-				imagen = new ImageIcon("src/imgCartaFra/imagenDIAMANTES03");
+				imagen = new ImageIcon("src/imgCartaFra/imagenDIAMANTES03.jpg");
 				break;
 			case 4:
-				imagen = new ImageIcon("src/imgCartaFra/imagenDIAMANTES04");
+				imagen = new ImageIcon("src/imgCartaFra/imagenDIAMANTES04.jpg");
 				break;
 			case 5:
-				imagen = new ImageIcon("src/imgCartaFra/imagenDIAMANTES05");
+				imagen = new ImageIcon("src/imgCartaFra/imagenDIAMANTES05.jpg");
 				break;
 			case 6:
-				imagen = new ImageIcon("src/imgCartaFra/imagenDIAMANTES06");
+				imagen = new ImageIcon("src/imgCartaFra/imagenDIAMANTES06.jpg");
 				break;
 			case 7:
-				imagen = new ImageIcon("src/imgCartaFra/imagenDIAMANTES07");
+				imagen = new ImageIcon("src/imgCartaFra/imagenDIAMANTES07.jpg");
 				break;
 			case 8:
-				imagen = new ImageIcon("src/imgCartaFra/imagenDIAMANTES08");
+				imagen = new ImageIcon("src/imgCartaFra/imagenDIAMANTES08.jpg");
 				break;
 			case 9:
-				imagen = new ImageIcon("src/imgCartaFra/imagenDIAMANTES09");
+				imagen = new ImageIcon("src/imgCartaFra/imagenDIAMANTES09.jpg");
 				break;
 			case 10:
-				imagen = new ImageIcon("src/imgCartaFra/imagenDIAMANTES10");
+				imagen = new ImageIcon("src/imgCartaFra/imagenDIAMANTES10.jpg");
 				break;
 			case 11:
-				imagen = new ImageIcon("src/imgCartaFra/imagenDIAMANTES11");
+				imagen = new ImageIcon("src/imgCartaFra/imagenDIAMANTES11.jpg");
 				break;
 			case 12:
-				imagen = new ImageIcon("src/imgCartaFra/imagenDIAMANTES12");
+				imagen = new ImageIcon("src/imgCartaFra/imagenDIAMANTES12.jpg");
 				break;
 			case 13:
-				imagen = new ImageIcon("src/imgCartaFra/imagenDIAMANTES13");
+				imagen = new ImageIcon("src/imgCartaFra/imagenDIAMANTES13.jpg");
 				break;
 			}
 			break;
