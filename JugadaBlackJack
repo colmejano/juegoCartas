@@ -1,0 +1,42 @@
+public class JugadaBlackJack extends Jugada{
+	ManoBlackJack cartasJugador,cartasBanca;
+	public boolean jugarBanca(){
+		if(cartasBanca.calcularValor()>17){
+			return true;
+		}
+		cartasBanca.pideCarta(baraja);
+		if(cartasBanca>21)
+			ganador = jugador;
+		return false;
+	}
+	
+	public boolean jugarJugador(){
+		if(condicion){
+			return true;
+		}
+		cartasJugador.pideCarta(baraja);
+		if(cartasJugador.calcularValor()>21){
+			ganador = null;
+		return false;
+	}
+	
+	public void añadirManoBlackJack(ManoBlackJack mano){	
+		BarajaFrancesa baraja[];
+		baraja[0] = new BarajaFrancesa();
+		baraja[1] = new BarajaFrancesa();
+		baraja[0].mezclar();
+		baraja[1].mezclar();
+		cartasJugador = mano;
+		cartasBanca.reparte(baraja);	
+	}
+	
+	public void añadirManoBlackJack(){
+		BarajaFrancesa baraja[];
+		baraja[0] = new BarajaFrancesa();
+		baraja[1] = new BarajaFrancesa();
+		baraja[0].mezclar();
+		baraja[1].mezclar();
+		cartasJugador.reparte(baraja);
+		cartasBanca.reparte(baraja);
+	}
+}
