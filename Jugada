@@ -1,0 +1,13 @@
+public abstract class Jugada {
+	private Baraja baraja;
+	private Jugador ganador;
+	private double apuesta;
+	
+	final public void setGanador(Jugador ganador){
+		this.ganador=ganador;
+	}
+	
+	public abstract void jugarBanca();
+	
+	public abstract void jugarJugador();
+}
