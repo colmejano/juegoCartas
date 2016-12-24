@@ -5,7 +5,7 @@ public class JugadaBlackJack extends Jugada{
 			return true;
 		}
 		cartasBanca.pideCarta(baraja);
-		if(cartasBanca.calcularValor()>21 && cartasBanca.reduceValor())
+		if(cartasBanca.calcularValor()>21 && cartasBanca.reduceValor()>21)
 			ganador = jugador;
 		return false;
 	}
@@ -15,7 +15,7 @@ public class JugadaBlackJack extends Jugada{
 			return true;
 		}
 		cartasJugador.pideCarta(baraja);
-		if(cartasJugador.calcularValor()>21 && cartasJugador.reduceValor()){
+		if(cartasJugador.calcularValor()>21 && cartasJugador.reduceValor()>21){
 			ganador = null;
 		return false;
 	}
