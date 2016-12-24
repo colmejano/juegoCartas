@@ -1,0 +1,11 @@
+public void reparte(Baraja baraja){
+		
+			baraja[0] = new BarajaFrancesa();
+			baraja[1] = new BarajaFrancesa();
+			baraja[0].mezclar();
+			baraja[1].mezclar();
+			int indice = (int)Math.random()%(1);
+			cartasJugador[0] = baraja[indice].getCartaFrancesa();
+			indice = (int)Math.random()%(1);
+			cartasJugador[1] = baraja[indice].getCartaFrancesa();
+	}
