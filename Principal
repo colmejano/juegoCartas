@@ -11,7 +11,7 @@ public class Principal implements ActionListener{
     private JFrame menu,ventanaBlackJack,ventanaSiete;
     private JButton nueva_p,cargar,creditos,nueva_pBlackJack,nueva_pSieteYMedia,nueva_pAtras,
     		blackReanudar,blackGuardar,blackSalir,blackPausar,
-    		sieteReanudar,sieteGuardar,sieteSalir,sietePausar;
+    		sieteReanudar,sieteGuardar,sieteSalir,sietePausar,sietePide,sietePlantar;
 
 
     public void crearMenuPrincipal(){
@@ -119,6 +119,16 @@ public class Principal implements ActionListener{
         sietePausar.setBounds(0,0,200,50);
         sietePausar.addActionListener(this);
         ventanaSiete.add(sietePausar);
+        sietePide = new JButton("Pedir");
+        sietePlantar = new JButton("Plantarse");
+        sietePide.setBounds(400,900,200,50);
+        sietePide.addActionListener(this);
+        ventanaSiete.add(sietePide);
+        sietePide.setVisible(true);
+        sietePlantar.setBounds(700,900,200,50);
+        sietePlantar.addActionListener(this);
+        ventanaSiete.add(sietePlantar);
+        sietePlantar.setVisible(true);
         sietePausar.setVisible(true);
         ventanaSiete.setVisible(true);
 
@@ -259,6 +269,12 @@ public class Principal implements ActionListener{
 
 
 
+        }
+        if(e.getSource()==sietePlantar){
+        	
+        }
+        if(e.getSource()==sietePide){
+        	
         }
         if(e.getSource()==blackSalir){
             ventanaBlackJack.setVisible(false);
