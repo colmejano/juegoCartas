@@ -1,0 +1,64 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class VentanaBlackJack extends JFrame implements ActionListener{
+    JButton reanudar,guardar,salir,pausar;
+    JLabel fondo,logo;
+    public VentanaBlackJack(){
+        this.setSize(1024,1024);
+        this.setLocationRelativeTo(null);
+		this.setLayout(null);
+		this.setResizable(false);
+		this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+        logo = new JLabel();
+        fondo = new JLabel();
+        fondo.setIcon(new ImageIcon("src/textura/texturaFondo.jpg"));
+		fondo.setVisible(true);
+		logo.setIcon(new ImageIcon("src/textura/logo.png"));
+		logo.setBounds(200,200,600,100);
+		logo.setVisible(false);
+		this.setContentPane(fondo);
+		this.add(logo);
+        pausar = JButton("Pausar");
+        pausar.setBounds(0,0,200,50);
+        pausar.addActionListener(this);
+        this.add(pausar);
+        this.setVisible(pausar);
+		this.setVisible(true);
+    }
+
+    public void menuPausa(){
+        reanudar = JButton("Reanudar");
+        guardar = JButton("Guardar");
+        salir = JButton("Salir");
+        reanudar.setBounds(400,400,200,50);
+        guardar.setBounds(400,470,200,50);
+        salir.setBounds(400,540,200,50);
+        reanudar.addActionListener(this);
+        guardar.addActionListener(this);
+        salir.addActionListener(this);
+        this.add(reanudar);
+        this.add(guardar);
+        this.add(salir);
+    }
+
+     public void actionPerformed(ActionEvent e){
+         if(e.getContent()==pausar){
+             this.menuPausa();
+         }
+         if(e.getContent()==reanudar){
+             this.destroy(reanudar);
+             this.destroy(guardar);
+             this.destroy(salir);
+         }
+         if(e.getContent()==guardar){
+
+         }
+         if(e.getContent()==salir){
+             menu.setVisible(true);
+             this.dispose();
+         }
+     }
+}
