@@ -6,87 +6,47 @@ import java.awt.event.ActionListener;
 
 import java.awt.event.ActionEvent;
 
-
-
-
-
 public class Principal implements ActionListener{
 
-    private JFrame menu,ventanaBlackJack;
-    private JButton nueva_p,cargar,creditos,nueva_pBlackJack,nueva_pSieteYMedia,nueva_pAtras,reanudar,guardar,salir,pausar;
-
-    
-
-
-
+    private JFrame menu,ventanaBlackJack,ventanaSiete;
+    private JButton nueva_p,cargar,creditos,nueva_pBlackJack,nueva_pSieteYMedia,nueva_pAtras,
+    		blackReanudar,blackGuardar,blackSalir,blackPausar,
+    		sieteReanudar,sieteGuardar,sieteSalir,sietePausar;
 
 
     public void crearMenuPrincipal(){
-
         JLabel fondo,logo;
-
         menu = new JFrame("Juego de Cartas");
-
         menu.setSize(1024,1024);
-
         menu.setLocationRelativeTo(null);
-
 		menu.setLayout(null);
-
 		menu.setResizable(false);
-
 		menu.setDefaultCloseOperation(menu.EXIT_ON_CLOSE);
-
         logo = new JLabel();
-
         fondo = new JLabel();
-
         fondo.setIcon(new ImageIcon("src/textura/texturaFondo.jpg"));
-
 		fondo.setVisible(true);
-
 		logo.setIcon(new ImageIcon("src/textura/logo.png"));
-
 		logo.setBounds(200,200,600,100);
-
 		logo.setVisible(true);
-
 		menu.setContentPane(fondo);
-
 		menu.add(logo);
-
 		menu.setVisible(true);
-
         nueva_p = new JButton("Comenzar nueva partida");
-
 		nueva_p.setBounds(400,400,200,50);
-
 		cargar = new JButton("Cargar Partida");
-
 		cargar.setBounds(400,470,200,50);
-
 		creditos = new JButton("Creditos");
-
 		creditos.setBounds(400,540,200,50);
-
 		menu.add(nueva_p);
-
 		menu.add(cargar);
-
 		menu.add(creditos);
-
 		nueva_p.addActionListener(this);
-
 		cargar.addActionListener(this);
-
 		creditos.addActionListener(this);
-		
-		 nueva_p.setVisible(true);
-
-         cargar.setVisible(true);
-
-         creditos.setVisible(true);
-
+		nueva_p.setVisible(true);
+        cargar.setVisible(true);
+        creditos.setVisible(true);
     }
     
 
@@ -106,50 +66,87 @@ public class Principal implements ActionListener{
 		logo.setVisible(false);
 		ventanaBlackJack.setContentPane(fondo);
 		ventanaBlackJack.add(logo);
-        pausar = new JButton("Pausar");
-        pausar.setBounds(0,0,200,50);
-        pausar.addActionListener(this);
-        ventanaBlackJack.add(pausar);
-        pausar.setVisible(true);
+        blackPausar = new JButton("Pausar");
+        blackPausar.setBounds(0,0,200,50);
+        blackPausar.addActionListener(this);
+        ventanaBlackJack.add(blackPausar);
+        blackPausar.setVisible(true);
         ventanaBlackJack.setVisible(true);
 
     }
     
-    public void menuPausa(){
-
-        reanudar = new JButton("Reanudar");
-
-        guardar = new JButton("Guardar");
-
-        salir = new JButton("Salir");
-
-        reanudar.setBounds(400,400,200,50);
-
-        guardar.setBounds(400,470,200,50);
-
-        salir.setBounds(400,540,200,50);
-
-        reanudar.addActionListener(this);
-
-        guardar.addActionListener(this);
-
-        salir.addActionListener(this);
+    public void menuPausaBlackJack(){
+    	// Desactivamos la ventana para que al recargarla aparezcan los botones
+    	ventanaBlackJack.setVisible(false);
+    	
+        blackReanudar = new JButton("Reanudar");
+        blackGuardar = new JButton("Guardar");
+        blackSalir = new JButton("Salir");
+        blackReanudar.setBounds(400,400,200,50);
+        blackGuardar.setBounds(400,470,200,50);
+        blackSalir.setBounds(400,540,200,50);
+        blackReanudar.addActionListener(this);
+        blackGuardar.addActionListener(this);
+        blackSalir.addActionListener(this);
+        blackReanudar.setVisible(true);
+        blackGuardar.setVisible(true);
+        blackSalir.setVisible(true);
+        ventanaBlackJack.add(blackReanudar);
+        ventanaBlackJack.add(blackGuardar);
+        ventanaBlackJack.add(blackSalir);
         
-        reanudar.setVisible(true);
-        guardar.setVisible(true);
-        salir.setVisible(true);
-
-
-        ventanaBlackJack.add(reanudar);
-
-        ventanaBlackJack.add(guardar);
-
-        ventanaBlackJack.add(salir);
-        
+        ventanaBlackJack.setVisible(true);
         
     }
+    
+    public void ventanaSiete(){
+    	ventanaSiete = new JFrame("Siete y Media");
+    	ventanaSiete.setSize(1024,1024);
+    	ventanaSiete.setLocationRelativeTo(null);
+    	ventanaSiete.setLayout(null);
+    	ventanaSiete.setResizable(false);
+    	ventanaSiete.setDefaultCloseOperation(ventanaSiete.EXIT_ON_CLOSE);
+        JLabel logo = new JLabel();
+        JLabel fondo = new JLabel();
+        fondo.setIcon(new ImageIcon("src/textura/texturaFondo.jpg"));
+		fondo.setVisible(true);
+		logo.setIcon(new ImageIcon("src/textura/logo.png"));
+		logo.setBounds(200,200,600,100);
+		logo.setVisible(false);
+		ventanaSiete.setContentPane(fondo);
+		ventanaSiete.add(logo);
+        sietePausar = new JButton("Pausar");
+        sietePausar.setBounds(0,0,200,50);
+        sietePausar.addActionListener(this);
+        ventanaSiete.add(sietePausar);
+        sietePausar.setVisible(true);
+        ventanaSiete.setVisible(true);
 
+    }
 
+    public void menuPausaSiete(){
+    	// Desactivamos la ventana para que al recargarla aparezcan los botones
+    	ventanaSiete.setVisible(false);
+    	
+        sieteReanudar = new JButton("Reanudar");
+        sieteGuardar = new JButton("Guardar");
+        sieteSalir = new JButton("Salir");
+        sieteReanudar.setBounds(400,400,200,50);
+        sieteGuardar.setBounds(400,470,200,50);
+        sieteSalir.setBounds(400,540,200,50);
+        sieteReanudar.addActionListener(this);
+        sieteGuardar.addActionListener(this);
+        sieteSalir.addActionListener(this);
+        sieteReanudar.setVisible(true);
+        sieteGuardar.setVisible(true);
+        sieteSalir.setVisible(true);
+        ventanaSiete.add(sieteReanudar);
+        ventanaSiete.add(sieteGuardar);
+        ventanaSiete.add(sieteSalir);
+        
+        ventanaSiete.setVisible(true);
+        
+    }
 
 
     public Principal(){
@@ -165,41 +162,23 @@ public class Principal implements ActionListener{
     public void actionPerformed(ActionEvent e){
 
 		if(e.getSource()==nueva_p){
-
 			nueva_p.setVisible(false);
-
             cargar.setVisible(false);
-
             creditos.setVisible(false);
-
             nueva_pBlackJack = new JButton("Black Jack");
-
             nueva_pSieteYMedia = new JButton("Siete y Media");
-
             nueva_pAtras = new JButton("Atras");
-
             nueva_pBlackJack.setBounds(400,400,200,50);
-
             nueva_pSieteYMedia.setBounds(400,470,200,50);
-
             nueva_pAtras.setBounds(400,540,100,50);
-
             menu.add(nueva_pBlackJack);
-
             menu.add(nueva_pSieteYMedia);
-
             menu.add(nueva_pAtras);
-
             nueva_pBlackJack.addActionListener(this);
-
             nueva_pSieteYMedia.addActionListener(this);
-
             nueva_pAtras.addActionListener(this);
-
             nueva_pBlackJack.setVisible(true);
-
             nueva_pSieteYMedia.setVisible(true);
-
             nueva_pAtras.setVisible(true);
 
 		}
@@ -227,47 +206,61 @@ public class Principal implements ActionListener{
         }
 
         if(e.getSource()==nueva_pSieteYMedia){
-
+        	ventanaSiete();
+        	menu.remove(nueva_pBlackJack);
+        	menu.remove(nueva_pSieteYMedia);
+        	menu.remove(nueva_pAtras);
+        	menu.setVisible(false);
 
 
         }
 
         if(e.getSource()==nueva_pAtras){
-
             menu.remove(nueva_pBlackJack);
-
             menu.remove(nueva_pSieteYMedia);
-
             menu.remove(nueva_pAtras);
-
-           
-
         }
-        if(e.getSource()==pausar){
+        if(e.getSource()==blackPausar){
 
-            this.menuPausa();
-
-
+            this.menuPausaBlackJack();
+        }
+        if(e.getSource()==sietePausar){
+        	this.menuPausaSiete();
         }
 
-        if(e.getSource()==reanudar){
-       	 
-       	
-            ventanaBlackJack.remove(reanudar);
-
-            ventanaBlackJack.remove(guardar);
-
-            ventanaBlackJack.remove(salir);
-
-        }
-
-        if(e.getSource()==guardar){
-
-
+        if(e.getSource()==blackReanudar){
+       	 	// Para refrescar la ventana
+        	ventanaBlackJack.setVisible(false);
+            
+        	ventanaBlackJack.remove(blackReanudar);
+            ventanaBlackJack.remove(blackGuardar);
+            ventanaBlackJack.remove(blackSalir);
+            
+            ventanaBlackJack.setVisible(true);
 
         }
+        if(e.getSource()==sieteReanudar){
+       	 	// Para refrescar la ventana
+        	ventanaSiete.setVisible(false);
+            
+        	ventanaSiete.remove(sieteReanudar);
+            ventanaSiete.remove(sieteGuardar);
+            ventanaSiete.remove(sieteSalir);
+            
+            ventanaSiete.setVisible(true);
 
-        if(e.getSource()==salir){
+        }
+        if(e.getSource()==blackGuardar){
+
+
+
+        }
+        if(e.getSource()==sieteGuardar){
+
+
+
+        }
+        if(e.getSource()==blackSalir){
             ventanaBlackJack.setVisible(false);
             menu.setVisible(true);
             nueva_p.setVisible(true);
@@ -276,7 +269,15 @@ public class Principal implements ActionListener{
             
 
         }
+        if(e.getSource()==sieteSalir){
+            ventanaSiete.setVisible(false);
+            menu.setVisible(true);
+            nueva_p.setVisible(true);
+            cargar.setVisible(true);
+            creditos.setVisible(true);
+            
 
+        }
 	}
 
 
