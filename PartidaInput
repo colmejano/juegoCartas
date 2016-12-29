@@ -1,0 +1,28 @@
+import java.io.*;
+public class PartidaInput {
+	private FileInputStream file;
+	private ObjectInputStream input;
+	
+	public void abrir() throws IOException{
+		file = new FileInputStream("partidas.ser");
+		input = new ObjectInputStream(file);
+	}
+	
+	public void cerrar() throws IOException{
+		if(input!=null)
+			input.close();
+	}
+	
+	
+	public Partida leer() throws IOException,ClassNotFoundException{
+		Partida partida = null;
+		if(input!=null){
+			try{
+				partida = (Partida) input.readObject();
+			} catch (EOFException eof){
+				
+			}
+		}
+		return partida;
+	}
+}
