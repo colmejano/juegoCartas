@@ -1,0 +1,69 @@
+public class JugadaBlackJack extends Jugada{
+	private BarajaFrancesa[] baraja = new BarajaFrancesa[2];
+	private ManoBlackJack manoJugador,manoBanca;
+	private boolean primeraPartida;
+	/**
+	 * PRE: Constructor por defecto
+	 * POST: Se crea una clase jugada cuya baraja es la francesa y la apuesta por defecto es de 10
+	 * EXCEPCIONES:
+	 */
+	public JugadaBlackJack(){
+		super();
+		setBaraja(new BarajaFrancesa());
+		setApuesta(10);
+		baraja[0] = new BarajaFrancesa();
+		baraja[1] = new BarajaFrancesa();
+		manoJugador = new ManoBlackJack();
+		manoBanca = new ManoBlackJack();
+		primeraPartida = true;
+	}
+	
+	
+	/**
+	 * PRE: Se pasa como parametro una mano que se quiera atribuir a la mano del jugador
+	 * POST: La mano del jugador es la mano pasada como parámetro. Este método sirve para la carga de partidas anteriores
+	 * EXCEPCIONES:
+	 */
+	public void añadirManoBlackJack(ManoBlackJack mano){
+		manoJugador = mano;
+	}
+	
+	
+	/**
+	 * PRE:
+	 * POST: Si es la primera partida se reparten dos cartas al jugador, sino solo una
+	 * EXCEPCIONES:
+	 */
+	public void jugarJugador(){
+		if(primeraPartida){
+			manoJugador.reparte(baraja[(int)Math.random()*1]);
+		}
+		else{
+			manoJugador.pideCarta(baraja[(int)Math.random()*1]);
+		}
+	}
+	
+	/**
+	 * PRE:
+	 * POST: Si es la primera partida se reparten dos cartas a la banca, sino solo una
+	 * EXCEPCIONES:
+	 */
+	public void jugarBanca(){
+		if(primeraPartida){
+			manoBanca.reparte(baraja[(int)Math.random()*1]);
+			primeraPartida=false;
+		}
+		else{
+			manoBanca.pideCarta(baraja[(int)Math.random()*1]);
+		}
+	}
+	
+	
+	public ManoBlackJack getManoJugador(){
+		return manoJugador;
+	}
+	
+	public ManoBlackJack getManoBanca(){
+		return manoBanca;
+	}
+}
