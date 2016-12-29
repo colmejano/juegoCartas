@@ -1,0 +1,8 @@
+import java.util.Comparator;
+
+public class OrdenarJugadorPorPartidasGanadas implements Comparator<Jugador>{
+	public int compare(Jugador uno,Jugador dos){
+		return (uno.getJugadasGanadas7()+uno.getJugadasGanadasBJ())-(dos.getJugadasGanadas7()
+				+ dos.getJugadasGanadasBJ());
+	}
+}
