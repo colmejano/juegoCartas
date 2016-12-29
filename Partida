@@ -1,0 +1,81 @@
+import java.util.*;
+public class Partida {
+	
+	private int num;
+	private static Integer partidasTotales = new Integer(0);
+	private java.util.Date fecha;
+	private String juego;
+	private double fichas;
+	private ArrayList<Jugada> listaJugadas;
+	private Jugador jugador;
+	
+	
+	/**
+	 * PRE:	Constructor por defecto
+	 * POST: Tiene 100 fichas de inicio, la fecha en la que es creada, y el numero de partidas totales
+	 * EXCEPCIONES:
+	 */
+	public Partida(){
+		fichas = 100;
+		partidasTotales++;
+		num = (int)partidasTotales;
+		fecha = new java.util.Date();
+		listaJugadas = new ArrayList<Jugada>();
+	}
+	
+	
+	
+	/**
+	 * PRE: Se pasa como parámetro la jugada que quiere añadir
+	 * POST: La partida ahora tiene en su lista interna la jugada pasada como parámetro además de restar el dinero perdido
+	 * EXCEPCIONES: ERROR_FichasInsuficientes si no hay suficientes fichas para apostar
+	 */
+	public void añadeJugada(Jugada jugada){
+		if(fichas<jugada.getApuesta()){
+			System.err.println("ERROR_FichasInsuficientes");
+			return;
+		}
+		if(listaJugadas.isEmpty()){
+			if(jugada instanceof JugadaBlackJack){
+				juego = "Black Jack";
+			}
+			else{
+				juego = "Siete y Media";
+			}
+		}
+		listaJugadas.add(jugada);
+		if(jugada.getGanador()==null)
+			fichas -= jugada.getApuesta();
+		else
+			fichas += jugada.getApuesta();
+	}
+	
+	
+	public int getNum(){
+		return num;
+	}
+	
+	public Integer getPartidasTotales(){
+		return partidasTotales;
+	}
+	
+	public Date getFecha(){
+		return fecha;
+	}
+	
+	public String getJuego(){
+		return juego;
+	}
+	
+	public ArrayList<Jugada> getListaJugadas(){
+		return listaJugadas;
+	}
+	
+	public Jugador getJugador(){
+		return jugador;
+	}
+	
+	public void setJugador(Jugador jugador){
+		this.jugador = jugador;
+	}
+}
