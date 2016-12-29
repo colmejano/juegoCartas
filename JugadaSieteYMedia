@@ -1,0 +1,70 @@
+public class JugadaSieteYMedia extends Jugada{
+	private BarajaEspañola baraja;
+	private Mano manoJugador,manoBanca;
+	private boolean primeraPartida;
+	
+	
+	/** PRE: Constructor por defecto
+	 *  POST: Construye un objeto de la clase JugadaSieteYMedia cuya apuesta mínima es de 25
+	 *  EXCEPCIONES:
+	 */
+	public JugadaSieteYMedia(){
+		super();
+		setBaraja(new BarajaEspañola());
+		baraja = new BarajaEspañola();
+		manoJugador = new Mano();
+		manoBanca = new Mano();
+		primeraPartida=true;
+		setApuesta(25);
+	}
+	
+	
+	/**
+	 * PRE: Se pasa como parámetro un objeto de la clase Mano
+	 * POST: Se atribuye a la mano del jugador la mano pasada como parámetro
+	 * EXCEPCIONES:
+	 */
+	public void añadirMano(Mano mano){
+		manoJugador = mano;
+	}
+	
+	
+	/**
+	 * PRE:
+	 * POST: Si es la primera partida se reparten dos cartas al jugador, sino solo una
+	 * EXCEPCIONES:
+	 */
+	public void jugarJugador(){
+		if(primeraPartida){
+			manoJugador.reparte(baraja);
+		}
+		else{
+			manoJugador.pideCarta(baraja);
+		}
+	}
+	
+	
+	/**
+	 * PRE:
+	 * POST: Si es la primera partida se reparten dos cartas a la banca, sino solo una
+	 * EXCEPCIONES:
+	 */
+	public void jugarBanca(){
+		if(primeraPartida){
+			manoBanca.reparte(baraja);
+			primeraPartida=false;
+		}
+		else{
+			manoBanca.pideCarta(baraja);
+		}
+	}
+	
+	public Mano getManoJugador(){
+		return manoJugador;
+	}
+	
+	public Mano getManoBanca(){
+		return manoBanca;
+	}
+
+}
