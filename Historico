@@ -1,0 +1,182 @@
+import java.util.*;
+import java.io.*;
+public class Historico {
+	
+	private ArrayList<Partida> listaPartidas;
+	
+	
+	/**
+	 * PRE:
+	 * POST: Se inserta en la lista de Partidas del objeto todas las partidas jugadas
+	 * EXCEPCIONES: IOException, ClassNotFoundException
+	 */
+	public Historico() throws IOException, ClassNotFoundException{
+		listaPartidas = new ArrayList<Partida>();
+		PartidaInput entrada = new PartidaInput();
+		entrada.abrir();
+		Partida p = entrada.leer();
+		while(p!=null){
+			listaPartidas.add(p);
+			p = entrada.leer();
+		}
+		entrada.cerrar();
+		
+	}
+	
+	
+	/**
+	 * PRE: Se pasa como parametro un objeto de tipo Jugador para saber en que partidas ha participado
+	 * POST: Se devuelve una lista que contiene todas las partidas en las que el jugador ha participado
+	 * EXCEPCIONES:
+	 */
+	public ArrayList<Partida> resultados(Jugador j){
+		ArrayList<Partida> participaJugador = new ArrayList<Partida>();
+		int i = listaPartidas.size();
+		for(int k=0;k<i;k++){
+			Partida p = listaPartidas.get(k);
+			if(p.getJugador()==j){
+				participaJugador.add(p);
+			}
+		}
+		return participaJugador;
+	}
+	
+	
+	/**
+	 * PRE:
+	 * POST: Mediante una lista ordenada se clasifican los jugadores según el número de partidas totales ganadas que es devuelta mediante una lista
+	 * EXCEPCIONES:
+	 */
+	public ArrayList<Jugador> clasificacion(){
+		OrdenarJugadorPorPartidasGanadas orden = new OrdenarJugadorPorPartidasGanadas();
+		TreeSet<Jugador> listaOrdenada = new TreeSet<Jugador>(orden);
+		int i = listaPartidas.size();
+		for(int j=0;j<i;j++){
+			listaOrdenada.add(listaPartidas.get(j).getJugador());
+		}
+		ArrayList<Jugador> resultado = new ArrayList<Jugador>();
+		resultado.addAll(listaOrdenada);
+		return resultado;
+	}
+	
+	
+	
+	/**
+	 * PRE: Entra como parametro una cadena de caracteres con el nombre del jugador
+	 * POST: Devuelve el objeto de tipo jugador que concuerda en el nombre
+	 * EXCEPCIONES: ERROR_JugadorInexistente si el parámetro no concuerda con ninguno de los objetos
+	 */
+	public Jugador buscarJugador(String nombre){
+		int i = listaPartidas.size();
+		for(int j=0;j<i;j++){
+			if(listaPartidas.get(j).getJugador().getNombre()==nombre){
+				return listaPartidas.get(j).getJugador();
+			}
+		}
+		System.err.println("ERROR_JugadorInexistente");
+		return new Jugador();
+	}
+	
+	
+	/**
+	 * PRE: Se pasa como parametro el jugador que se quiere añadir
+	 * POST: La lista de jugadores se actualiza
+	 * EXCEPCIONES:
+	 */
+	public void añadirJugador(Jugador jugador){
+		Partida p = new Partida();
+		p.setJugador(jugador);
+		listaPartidas.add(p);
+	}
+	
+	
+	/**
+	 * 
+	 * 
+	 */
+	public void añadirPartida(Partida partida){
+		listaPartidas.add(partida);
+	}
+	
+	
+	
+	/**
+	 * 
+	 * 
+	 */
+	public ArrayList<Partida> listadoPartidas(){
+		return listaPartidas;
+	}
+	
+	
+	/**
+	 * 
+	 * 
+	 */
+	public int numJugadas(Partida p){
+		return p.getListaJugadas().size();
+	}
+	
+	
+	
+	
+	/**
+	 * 
+	 * 
+	 */
+	public ArrayList<Jugador> ganadorJugadas(Partida p){
+		ArrayList<Jugador> ganadores = new ArrayList<Jugador>();
+		for(int i=0;i<p.getListaJugadas().size();i++){
+			ganadores.add(p.getListaJugadas().get(i).getGanador());
+		}
+		return ganadores;
+	}
+	
+	
+	
+	/**
+	 * 
+	 * 
+	 *
+	 */
+	public ArrayList<Integer> fichasApostadasJugada(Partida p){
+		ArrayList<Integer> fichas = new ArrayList<Integer>();
+		for(int i=0;i<p.getListaJugadas().size();i++){
+			fichas.add((int) p.getListaJugadas().get(i).getApuesta());
+		}
+		return fichas;
+		
+	}
+	
+	
+	
+	
+	/**
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * public ArrayList<Mano> cartasMano(Partida p){
+		
+		
+	}
+	 * 
+	 * 
+	 * 
+	 */
+	
+	
+	
+	
+	public void guardarDatos() throws IOException{
+		PartidaOutput salida;
+		salida = new PartidaOutput();
+		salida.abrir();
+		for(int i=0;i<listaPartidas.size();i++){
+			salida.escribir(listaPartidas.get(i));
+		}
+		salida.cerrar();
+		
+	}
+}
