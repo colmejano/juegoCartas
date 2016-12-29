@@ -1,0 +1,123 @@
+public class Jugador
+
+{  
+
+   private String nombre;
+
+   private double fichasTotales;
+
+   private int jugadasGanadasBJ;
+
+   private int jugadasGanadas7;
+
+   private int jugadasPerdidasBJ;
+
+   private int jugadasPerdidas7;
+
+   private int jugadasEmpatadas;
+
+   
+
+   public Jugador(String n){
+
+       nombre=n;
+
+       fichasTotales=100;
+
+       jugadasGanadasBJ=0;
+
+       jugadasGanadas7=0;
+
+       jugadasPerdidasBJ=0;
+
+       jugadasPerdidas7=0;
+
+       jugadasEmpatadas=0;
+
+    }
+
+   public String getNombre(){
+
+       return this.nombre;
+
+    }
+
+   public int getjugadasGanadasBJ(){
+
+       return this.jugadasGanadasBJ;
+
+    }
+
+   public double getfichasTotales(){
+
+       return this.fichasTotales;
+
+    }
+
+   public int getjugadasGanadas7(){
+
+       return this.jugadasGanadas7;
+
+    }
+
+   public int getjugadasPerdidasBJ(){
+
+       return this.jugadasPerdidasBJ;
+
+    }
+
+   public int getjugadasPerdidas7(){
+
+       return this.jugadasPerdidas7;
+
+    }
+
+   public int getjugadasEmpatadas(){
+
+       return this.jugadasEmpatadas;
+
+    }
+
+   public void setNombre(String n){
+
+       this.nombre=n;
+
+    }
+
+   public void setfichasTotales(double fichas){
+
+       this.fichasTotales=fichas;
+
+    }
+
+   public void setjugadasGanadasBJ(int jugadas){
+
+       this.jugadasGanadasBJ=jugadas;
+
+    }
+
+   public void setjugadasGanadas7(int jugadas){
+
+       this.jugadasGanadas7=jugadas;
+
+    }
+
+   public void setjugadasPerdidasBJ(int perdidas){
+
+       this.jugadasPerdidasBJ=perdidas;
+
+    }
+
+   public void setjugadasPerdidas7(int perdidas){
+
+       this.jugadasPerdidas7=perdidas;
+
+    }
+
+   public void setjugadasEmpatadas(int empate){
+
+       this.jugadasEmpatadas=empate;
+
+    }
+
+}
