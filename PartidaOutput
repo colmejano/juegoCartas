@@ -1,0 +1,26 @@
+import java.io.*;
+public class PartidaOutput {
+	private FileOutputStream file;
+	private ObjectOutputStream output;
+	
+	//Abrir fichero
+	
+	public void abrir()
+		throws IOException
+		{
+			file = new FileOutputStream("partidas.ser");
+			output = new ObjectOutputStream(file);
+		}
+	
+	//Cerrar fichero
+	public void cerrar() throws IOException{
+		if(output!=null)
+			output.close();
+	}
+	
+	//Escribir en fichero
+	public void escribir(Partida partida) throws IOException{
+		if(output!=null)
+			output.writeObject(partida);
+	}
+}
