@@ -1,0 +1,102 @@
+public class CartaFrancesa extends Carta{
+	public enum Palo{
+		CORAZONES,
+		DIAMANTES,
+		PICAS,
+		TREVOLES
+	};
+	
+	private Palo palo;
+	
+	/**PRE: Se pasan como parametros el valor y el palo de la carta
+	 * POST: Será el único constructor el cual cargará la imagen elegida en base al Palo y valor
+	 * EXCEPCIONES:
+	 */
+	public CartaFrancesa(int valor,Palo palo){
+		super(valor);
+		//Variable en la que se guarda la dirección de imagen de forma temporal
+		String imagen = "defecto";
+		this.palo=palo;
+		switch(this.palo){
+		case CORAZONES:
+			switch(valor){
+			case 1:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenCORAZONES01.jpg"; break;
+			case 2:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenCORAZONES02.jpg"; break;
+			case 3:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenCORAZONES03.jpg"; break;
+			case 4:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenCORAZONES04.jpg"; break;
+			case 5:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenCORAZONES05.jpg"; break;
+			case 6:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenCORAZONES06.jpg"; break;
+			case 7:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenCORAZONES07.jpg"; break;
+			case 8:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenCORAZONES08.jpg"; break;
+			case 9:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenCORAZONES09.jpg"; break;
+			case 10:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenCORAZONES10.jpg"; break;
+			case 11:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenCORAZONES11.jpg"; break;
+			case 12:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenCORAZONES12.jpg"; break;
+			case 13:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenCORAZONES12.jpg"; break;
+			}
+			break;
+		case DIAMANTES:
+			switch(valor){
+			case 1:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenDIAMANTES01.jpg"; break;
+			case 2:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenDIAMANTES02.jpg"; break;
+			case 3:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenDIAMANTES03.jpg"; break;
+			case 4:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenDIAMANTES04.jpg"; break;
+			case 5:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenDIAMANTES05.jpg"; break;
+			case 6:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenDIAMANTES06.jpg"; break;
+			case 7:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenDIAMANTES07.jpg"; break;
+			case 8:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenDIAMANTES08.jpg"; break;
+			case 9:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenDIAMANTES09.jpg"; break;
+			case 10:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenDIAMANTES10.jpg"; break;
+			case 11:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenDIAMANTES11.jpg"; break;
+			case 12:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenDIAMANTES12.jpg"; break;
+			case 13:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenDIAMANTES13.jpg"; break;
+			}
+			break;
+		case PICAS:
+			switch(valor){
+			case 1:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenPICAS01.jpg"; break;
+			case 2:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenPICAS02.jpg"; break;
+			case 3:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenPICAS03.jpg"; break;
+			case 4:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenPICAS04.jpg"; break;
+			case 5:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenPICAS05.jpg"; break;
+			case 6:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenPICAS06.jpg"; break;
+			case 7:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenPICAS07.jpg"; break;
+			case 8:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenPICAS08.jpg"; break;
+			case 9:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenPICAS09.jpg"; break;
+			case 10:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenPICAS10.jpg"; break;
+			case 11:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenPICAS11.jpg"; break;
+			case 12:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenPICAS12.jpg"; break;
+			case 13:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenPICAS13.jpg"; break;
+			}
+			break;
+		case TREVOLES:
+			switch(valor){
+			case 1:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenTREVOLES01.jpg"; break;
+			case 2:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenTREVOLES02.jpg"; break;
+			case 3:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenTREVOLES03.jpg"; break;
+			case 4:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenTREVOLES04.jpg"; break;
+			case 5:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenTREVOLES05.jpg"; break;
+			case 6:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenTREVOLES06.jpg"; break;
+			case 7:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenTREVOLES07.jpg"; break;
+			case 8:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenTREVOLES08.jpg"; break;
+			case 9:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenTREVOLES09.jpg"; break;
+			case 10:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenTREVOLES10.jpg"; break;
+			case 11:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenTREVOLES11.jpg"; break;
+			case 12:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenTREVOLES12.jpg"; break;
+			case 13:	imagen = "JuegoDeCartas/src/imgCartaFra/imagenTREVOLES13.jpg"; break;
+			}
+			break;
+		}
+		setImagen(imagen);
+	}
+	
+	
+	
+	/** PRE: Se pasa como parámetro el nuevo valor
+	 *  POST: El objeto tiene como nuevo valor el atributo
+	 *  EXCEPCIONES:
+	 */
+	public void setValor(int valor){
+		this.valor=valor;
+	}
+}
