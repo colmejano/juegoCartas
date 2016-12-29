@@ -1,0 +1,78 @@
+import java.util.ArrayList;
+
+public class BarajaEspañola extends Baraja{
+	//Se ha decidido utilizar una lista ya que la dimensión de la baraja se irá reduciendo a medida que se sacan cartas
+	ArrayList<CartaEspañola> baraja;
+	
+	
+	
+	/**
+	 * PRE: Constructor por defecto
+	 * POST: Crea una baraja española completa ordeanada por palos
+	 * EXCEPCIONES:
+	 */
+	public BarajaEspañola(){
+		baraja = new ArrayList<CartaEspañola>(40);
+		for(int i=1;i<=7;i++){
+			baraja.add(new CartaEspañola(i,CartaEspañola.Palo.ORO));
+		}
+		for(int i=10;i<=12;i++){
+			baraja.add(new CartaEspañola(i,CartaEspañola.Palo.ORO));
+		}
+		for(int i=1;i<=7;i++){
+			baraja.add(new CartaEspañola(i,CartaEspañola.Palo.COPAS));
+		}
+		for(int i=10;i<=12;i++){
+			baraja.add(new CartaEspañola(i,CartaEspañola.Palo.COPAS));
+		}
+		for(int i=1;i<=7;i++){
+			baraja.add(new CartaEspañola(i,CartaEspañola.Palo.ESPADAS));
+		}
+		for(int i=10;i<=12;i++){
+			baraja.add(new CartaEspañola(i,CartaEspañola.Palo.ESPADAS));
+		}
+		for(int i=1;i<=7;i++){
+			baraja.add(new CartaEspañola(i,CartaEspañola.Palo.BASTOS));
+		}
+		for(int i=10;i<=12;i++){
+			baraja.add(new CartaEspañola(i,CartaEspañola.Palo.BASTOS));
+		}
+	}
+	
+	
+	/**
+	 * PRE: 
+	 * POST: Coge la baraja y la ordena de forma aleatoria
+	 * EXCEPCIONES:
+	 */
+	public void mezclar(){
+		ArrayList<CartaEspañola> lista = new ArrayList<CartaEspañola>(40);
+		for(int i=0;i<=39;i++){
+			lista.add(this.baraja.get(i));
+		}
+		baraja.clear();
+		for(int i=0;i<=39;i++){
+			int j=(int)(Math.random()*(40-i));
+			baraja.add(lista.get(j));
+			lista.remove(j);
+		}
+	}
+	
+	
+	/** PRE:
+	 * POST: Coge una carta de la baraja
+	 * EXCEPCIONES: ERROR_BarajaVacía si la baraja está vacía, devuelve null
+	 */
+	public Carta cogerCarta(){
+		if(this.baraja.isEmpty()){
+			System.err.println("ERROR_BarajaVacía: Operación no permitida");
+			return null;
+		}
+		Carta carta;
+		carta = baraja.get(0);
+		baraja.remove(0);
+		return carta;
+	}
+	
+	
+}
