@@ -1,0 +1,55 @@
+public class ManoBlackJack extends Mano{
+	
+	public ManoBlackJack(){
+		super();
+	}
+	
+	
+	
+	/**
+	 * PRE:
+	 * POST: Devuelve true o false en base a si hay un As en la mano
+	 * EXCEPCIONES:
+	 */
+	public boolean hayunAs(){
+		int i = getMano().size();
+		for(int j=0;j<i;j++){
+			Carta carta = getMano().get(j);
+			if(carta.getValor()==1){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
+	
+	/**
+	 * PRE:
+	 * POST: Devuelve el valor de las cartas dando al As el valor 1
+	 * EXCEPCIONES:
+	 */
+	public double reduceValor(){
+		double valor = 0.0;
+		int i = getMano().size();
+		for(int j=0;j<i;j++){
+			Carta v = getMano().get(j);
+			switch(v.getValor()){
+			case 1: valor+=1; break;
+			case 2: valor+=2; break;
+			case 3: valor+=3; break;
+			case 4: valor+=4; break;
+			case 5: valor+=5; break;
+			case 6: valor+=6; break;
+			case 7: valor+=7; break;
+			case 8: valor+=8; break;
+			case 9: valor+=9; break;
+			case 10: valor+=10; break;
+			case 11: valor+=10; break;
+			case 12: valor+=10; break;
+			}
+		}
+		return valor;
+	}
+
+}
