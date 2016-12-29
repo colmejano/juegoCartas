@@ -1,0 +1,58 @@
+import javax.swing.*;
+public class Carta {
+	protected int valor;
+	//La cadena de caracteres almacenará la direccion donde se guarda la imágen
+	private String imagen;
+	
+	
+	/** PRE: Constructor por defecto
+	 *  POST: Crea una carta correspondiente al As de Oros de la baraja española
+	 *  EXCEPCIONES:
+	 */
+	public Carta(){
+		valor=1;
+		imagen = "JuegoDeCartas/src/imgCartaEsp/imagenORO01.jpg";
+	}
+	
+	
+	
+	/**	PRE: Constructor al que se le pasa el valor
+	 * 	POST: Se crea la carta correspondiente
+	 * 	EXCEPCIONES:
+	 */
+	public Carta(int valor){
+		this.valor=valor;
+	}
+	
+	
+	
+	/** PRE: Se pasarán como parámetros el JLabel y la posición en el que se cargará éste
+	 * POST: Tras el método tendremos un JLabel que contendra la imagen de la carta actual.
+	 * EXCEPCIONES: 
+	 */
+	public void mostrar(JLabel label,int x,int y){
+		label = new JLabel();
+		label.setIcon(new ImageIcon(imagen));
+		label.setBounds(x,y,200,300);
+		label.setVisible(true);
+	}
+	
+	
+	
+	/** PRE: 
+	 *  POST: Devuelve el valor de la variable interna valor
+	 */
+	public int getValor(){
+		return this.valor;
+	}
+	
+	
+	/** PRE:
+	 *  POST: Método utilizado solamente entre clases relacionadas por herencia para cargar la imagen correspondiente
+	 *  EXCEPCIONES:
+	 */
+	protected void setImagen(String imagen){
+		this.imagen=imagen;
+	}
+	
+}
