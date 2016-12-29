@@ -1,0 +1,110 @@
+import java.util.*;
+public class Mano {
+	private ArrayList<Carta> mano;
+	
+	/**
+	 * PRO: Constructor por defecto
+	 * POST: Crea una mano formada por una lista de Cartas, vacía de momento
+	 * EXCEPCIONES:
+	 */
+	public Mano(){
+		mano = new ArrayList<Carta>();
+	}
+	
+	
+	/**
+	 * PRE:
+	 * POST: Reparte o bien una carta (siete Y media) o dos (Black Jack) a la mano.
+	 * EXCEPCIONES: 
+	 */
+	public void reparte(Baraja baraja){
+		if(baraja instanceof BarajaEspañola){
+			baraja.mezclar();
+			mano.add(baraja.cogerCarta());
+		}
+		else{
+			baraja.mezclar();
+			mano.add(baraja.cogerCarta());
+			mano.add(baraja.cogerCarta());
+		}
+	}
+	
+	
+	
+	/**PRE:
+	 * POST: Se añade una carta a la mano
+	 * EXCEPCIONES:
+	 */
+	public void pideCarta(Baraja baraja){
+		mano.add(baraja.cogerCarta());
+	}
+	
+	
+	/**
+	 * PRE:
+	 * POST: Devuelve el valor de la suma total de las cartas tanto si es una mano con cartas de Black Jack como de siete y medio
+	 * EXCEPCIONES:
+	 */
+	public double calcularValor(){
+		int i = mano.size();
+		double valor=0.0;
+		if(mano.get(0) instanceof CartaEspañola){
+			for(int j=0;j<i;j++){
+				Carta v = mano.get(j);
+				switch(v.getValor()){
+				case 1: valor+=1; break;
+				case 2: valor+=2; break;
+				case 3: valor+=3; break;
+				case 4: valor+=4; break;
+				case 5: valor+=5; break;
+				case 6: valor+=6; break;
+				case 7: valor+=7; break;
+				case 10: valor+=0.5; break;
+				case 11: valor+=0.5; break;
+				case 12: valor+=0.5; break;
+				}
+			}
+		}
+		else if(mano.get(0) instanceof CartaFrancesa){
+			for(int j=0;j<i;j++){
+				Carta v = mano.get(j);
+				switch(v.getValor()){
+				case 1: valor+=11; break;
+				case 2: valor+=2; break;
+				case 3: valor+=3; break;
+				case 4: valor+=4; break;
+				case 5: valor+=5; break;
+				case 6: valor+=6; break;
+				case 7: valor+=7; break;
+				case 8: valor+=8; break;
+				case 9: valor+=9; break;
+				case 10: valor+=10; break;
+				case 11: valor+=10; break;
+				case 12: valor+=10; break;
+				}
+			}
+		}
+		return valor;
+	}
+	
+	
+	
+	
+	/**
+	 * PRE:
+	 * POST: Devuelve true o false dependiendo de si se ha sobrepasado el limite, ya sea en Black Jack o en Siete y Medio
+	 * EXCEPCIONES:
+	 */
+	public boolean sePasa(){
+		if(mano.get(0) instanceof CartaFrancesa){
+			return(calcularValor()>21);
+		}
+		else{
+			return(calcularValor()>7.5);
+		}
+	}
+	
+	public ArrayList<Carta> getMano(){
+		return mano;
+	}
+}
