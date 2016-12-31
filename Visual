@@ -1,0 +1,360 @@
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import javax.swing.*;
+
+public class Visual implements ActionListener{
+	private JFrame pantallaPrincipal;
+	private JLabel fondo,logo;
+	private String nombreJugador;
+	private Historico datos;
+	private JButton blackJack,sieteYMedia,nueva_pBJ,cargar_pBJ,nueva_p7,cargar_p7,atras;
+	
+	private JButton subir,bajar,pedir,plantarse;
+	
+	private JLabel pos01,pos02,pos03,pos04,pos05,posB1,posB2,posB3,posB4;
+	
+	private JButton apuesta,marcadorJugador,marcadorBanca;
+	
+	private boolean comenzar=true, cPlantarse = true;
+	
+	private JugadaBlackJack jugada;
+	
+	private int puntuacionJugador,puntuacionBanca;
+	
+	private Partida partida;
+	
+	private Jugador jugador;
+	
+	public Visual() throws ClassNotFoundException, IOException{
+		pantallaPrincipal = new JFrame("Juego de Cartas");
+		pantallaPrincipal.setSize(1024, 1024);
+		pantallaPrincipal.setLocationRelativeTo(null);
+		pantallaPrincipal.setLayout(null);
+		pantallaPrincipal.setResizable(false);
+		pantallaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		fondo = new JLabel();
+		logo = new JLabel();
+		fondo.setIcon(new ImageIcon("src/imgCartaEsp/texturaFondo.jpg"));
+		logo.setIcon(new ImageIcon("src/imgCartaEsp/logo.png"));
+		logo.setBounds(200,200,700,200);
+		fondo.setVisible(true);
+		logo.setVisible(true);
+		pantallaPrincipal.setContentPane(fondo);
+		pantallaPrincipal.add(logo);
+		pantallaPrincipal.setVisible(true);
+		nombreJugador = JOptionPane.showInputDialog("Escriba su nombre");
+		blackJack = new JButton("Black Jack");
+		sieteYMedia = new JButton("Siete y media");
+		blackJack.setBounds(400,400,200,50);
+		sieteYMedia.setBounds(400,500,200,50);
+		blackJack.addActionListener(this);
+		sieteYMedia.addActionListener(this);
+		pantallaPrincipal.add(blackJack);
+		pantallaPrincipal.add(sieteYMedia);
+		pantallaPrincipal.repaint();
+		datos = new Historico();
+	}
+	
+	
+	
+	public void setMenu(){
+		blackJack.setVisible(true);
+		sieteYMedia.setVisible(true);
+		pantallaPrincipal.repaint();
+	}
+	
+	public void quitMenu(){
+		blackJack.setVisible(false);
+		sieteYMedia.setVisible(false);
+		pantallaPrincipal.repaint();
+	}
+	
+	public void actionPerformed(ActionEvent e){
+		if(e.getSource()==blackJack){
+			quitMenu();
+			nueva_pBJ = new JButton("Nueva partida");
+			cargar_pBJ = new JButton("Cargar partida");
+			nueva_pBJ.setBounds(400,400,200,50);
+			cargar_pBJ.setBounds(400,500,200,50);
+			nueva_pBJ.addActionListener(this);
+			cargar_pBJ.addActionListener(this);
+			pantallaPrincipal.add(nueva_pBJ);
+			pantallaPrincipal.add(cargar_pBJ);
+			nueva_pBJ.setVisible(true);
+			cargar_pBJ.setVisible(true);
+			atras = new JButton("atras");
+			atras.setBounds(400,600,100,50);
+			atras.addActionListener(this);
+			pantallaPrincipal.add(atras);
+			atras.setVisible(true);
+			pantallaPrincipal.repaint();
+			
+		}
+		if(e.getSource()==sieteYMedia){
+			quitMenu();
+			nueva_p7 = new JButton("Nueva partida");
+			cargar_p7 = new JButton("Cargar partida");
+			nueva_p7.setBounds(400,400,200,50);
+			cargar_p7.setBounds(400,500,200,50);
+			nueva_p7.addActionListener(this);
+			cargar_p7.addActionListener(this);
+			pantallaPrincipal.add(nueva_p7);
+			pantallaPrincipal.add(cargar_p7);
+			nueva_p7.setVisible(true);
+			cargar_p7.setVisible(true);
+			atras = new JButton("atras");
+			atras.setBounds(400,600,100,50);
+			atras.addActionListener(this);
+			pantallaPrincipal.add(atras);
+			atras.setVisible(true);
+			pantallaPrincipal.repaint();
+		}
+		if(e.getSource()==nueva_pBJ){
+			JButton indicadorBanca = new JButton("Banca");
+			indicadorBanca.setBounds(800,10,200,50);
+			pantallaPrincipal.add(indicadorBanca);
+			indicadorBanca.setVisible(true);
+			JButton indicadorJugador = new JButton(nombreJugador);
+			indicadorJugador.setBounds(800,450,200,50);
+			pantallaPrincipal.add(indicadorJugador);
+			indicadorJugador.setVisible(true);
+			nueva_pBJ.setVisible(false);
+			cargar_pBJ.setVisible(false);
+			atras.setVisible(false);
+			logo.setVisible(false);
+			try {
+				nuevaPartidaBlackJack();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		if(e.getSource()==cargar_pBJ){
+			
+		}
+		if(e.getSource()==nueva_p7){
+			
+		}
+		if(e.getSource()==cargar_p7){
+			
+		}
+		if(e.getSource()==atras){
+			if(nueva_pBJ!=null){
+				nueva_pBJ.setVisible(false);
+				cargar_pBJ.setVisible(false);
+			}
+			if(nueva_p7!=null){
+				nueva_p7.setVisible(false);
+				cargar_p7.setVisible(false);
+			}
+			atras.setVisible(false);
+			setMenu();
+		}
+		if(e.getSource()==pedir){
+			if(comenzar){
+				subir.setVisible(false);
+				bajar.setVisible(false);
+				comenzarBlackJack();
+				comenzar=false;
+			}
+			else{
+				if((jugada.getManoJugador().calcularValor()<21 || jugada.getManoJugador().reduceValor()<21) && (jugada.getManoJugador().calcularValor()!=21 && jugada.getManoJugador().reduceValor()!=21) && cPlantarse){
+					jugada.jugarJugador();
+					if(jugada.getManoJugador().getMano().size()==3){
+						pantallaPrincipal.add(jugada.getManoJugador().getMano().get(2).mostrar(pos03, 550, 600,jugada.getManoJugador().getMano().get(2).getImagen()));
+						pantallaPrincipal.repaint();
+					}
+					else if(jugada.getManoJugador().getMano().size()==4){
+						pantallaPrincipal.add(jugada.getManoJugador().getMano().get(3).mostrar(pos04, 450, 600,jugada.getManoJugador().getMano().get(3).getImagen()));
+						pantallaPrincipal.repaint();
+					}
+					else if(jugada.getManoJugador().getMano().size()==5){
+						pantallaPrincipal.add(jugada.getManoJugador().getMano().get(3).mostrar(pos05, 350, 600,jugada.getManoJugador().getMano().get(4).getImagen()));
+						pantallaPrincipal.repaint();
+					}
+					
+				if(jugada.getManoJugador().calcularValor()>21){
+					marcadorJugador.setText(String.valueOf(jugada.getManoJugador().reduceValor()));
+					puntuacionJugador = (int)jugada.getManoJugador().reduceValor();
+				}
+				else{
+					marcadorJugador.setText(String.valueOf(jugada.getManoJugador().calcularValor()));
+					puntuacionJugador = (int)jugada.getManoJugador().reduceValor();
+				}
+
+				}
+				else{
+					marcadorJugador.setBackground(Color.RED);
+					try {
+						rondaBancaBlackJack();
+					} catch (InterruptedException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					decidirGanadorBlackJack();
+					
+				}
+			}
+		}
+		if(e.getSource()==plantarse){
+			cPlantarse = false;
+			marcadorJugador.setBackground(Color.RED);
+			try {
+				rondaBancaBlackJack();
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			decidirGanadorBlackJack();
+		}
+		if(e.getSource()==subir){
+			if(jugada.getApuesta()<100){
+				jugada.setApuesta(jugada.getApuesta()+10);
+				apuesta.setText(String.valueOf(jugada.getApuesta()));
+				apuesta.setVisible(false);
+				apuesta.setVisible(true);
+			}
+		}
+		if(e.getSource()==bajar){
+			if(jugada.getApuesta()>10){
+				jugada.setApuesta(jugada.getApuesta()-10);
+				apuesta.setText(String.valueOf(jugada.getApuesta()));
+				apuesta.setVisible(false);
+				apuesta.setVisible(true);
+			}
+		}
+	}
+	
+	
+	public void nuevaPartidaBlackJack() throws IOException{
+		subir = new JButton("Subir");
+		bajar = new JButton("Bajar");
+		pedir = new JButton("Pedir");
+		plantarse = new JButton("Plantarse");
+		apuesta = new JButton();
+		apuesta.setBounds(175,830,100,50);
+		apuesta.setBackground(Color.white);
+		
+		pantallaPrincipal.add(apuesta);
+		apuesta.setVisible(true);
+		subir.setBounds(100,900,100,50);
+		bajar.setBounds(250,900,100,50);
+		pedir.setBounds(600,900,100,50);
+		plantarse.setBounds(800,900,100,50);
+		subir.addActionListener(this);
+		bajar.addActionListener(this);
+		pedir.addActionListener(this);
+		plantarse.addActionListener(this);
+		pantallaPrincipal.add(subir);
+		pantallaPrincipal.add(bajar);
+		pantallaPrincipal.add(pedir);
+		pantallaPrincipal.add(plantarse);
+		subir.setVisible(true);
+		bajar.setVisible(true);
+		pedir.setVisible(true);
+		plantarse.setVisible(true);
+		partida = new Partida();
+		jugada = new JugadaBlackJack();
+		if(datos.buscarJugador(nombreJugador)== null){
+			jugador = new Jugador();
+			jugador.setNombre(nombreJugador);
+		}
+		else{
+			jugador = datos.buscarJugador(nombreJugador);
+		}
+		partida.setJugador(jugador);
+		String hd = String.valueOf(jugada.getApuesta());
+		apuesta.setText(hd);
+		apuesta.addActionListener(this);
+		pantallaPrincipal.repaint();
+		
+		}
+		
+	public void comenzarBlackJack(){
+		jugada = new JugadaBlackJack();
+		jugada.jugarJugador();
+		jugada.jugarBanca();
+		pantallaPrincipal.add(jugada.getManoJugador().getMano().get(0).mostrar(pos01, 750, 600,jugada.getManoJugador().getMano().get(0).getImagen()));
+		pantallaPrincipal.add(jugada.getManoJugador().getMano().get(1).mostrar(pos02,650,600,jugada.getManoJugador().getMano().get(1).getImagen()));
+		pantallaPrincipal.add(jugada.getManoBanca().getMano().get(0).mostrar(posB1, 750, 100, jugada.getManoBanca().getMano().get(0).getImagen()));
+		marcadorJugador = new JButton(String.valueOf(jugada.getManoJugador().calcularValor()));
+		marcadorJugador.setBounds(100,400,100,50);
+		marcadorBanca = new JButton(String.valueOf(jugada.getManoBanca().calcularValor()));
+		marcadorBanca.setBounds(100,300,100,50);
+		pantallaPrincipal.add(marcadorJugador);
+		pantallaPrincipal.add(marcadorBanca);
+		marcadorBanca.setVisible(true);
+		marcadorJugador.setVisible(true);
+		pantallaPrincipal.repaint();
+		}
+
+	
+	public void rondaBancaBlackJack() throws InterruptedException{
+		jugada.jugarBanca();
+		pantallaPrincipal.add(jugada.getManoBanca().getMano().get(1).mostrar(posB2, 650, 100, jugada.getManoBanca().getMano().get(1).getImagen()));
+		marcadorBanca.setText(String.valueOf(jugada.getManoBanca().calcularValor()));
+		pantallaPrincipal.repaint();
+		int i = 1;
+		Thread.sleep(2000);
+		while(jugada.getManoBanca().calcularValor()<17){
+			jugada.jugarBanca();
+			if(i==1){
+				pantallaPrincipal.add(jugada.getManoBanca().getMano().get(2).mostrar(posB3, 550, 100, jugada.getManoBanca().getMano().get(2).getImagen()));
+			}
+			else if(i==2){
+				pantallaPrincipal.add(jugada.getManoBanca().getMano().get(3).mostrar(posB3, 450, 100, jugada.getManoBanca().getMano().get(3).getImagen()));
+			}
+			else if(i==3){
+				pantallaPrincipal.add(jugada.getManoBanca().getMano().get(4).mostrar(posB4, 350, 100, jugada.getManoBanca().getMano().get(4).getImagen()));
+			}
+			i++;
+			marcadorBanca.setText(String.valueOf(jugada.getManoBanca().calcularValor()));
+			pantallaPrincipal.repaint();
+		
+		}
+		if(jugada.getManoBanca().hayunAs() && jugada.getManoBanca().calcularValor()>21){
+			marcadorBanca.setText(String.valueOf(jugada.getManoBanca().reduceValor()));
+			puntuacionBanca = (int)jugada.getManoBanca().reduceValor();
+		}
+		else{
+			puntuacionBanca = (int)jugada.getManoBanca().calcularValor();
+			marcadorBanca.setText(String.valueOf(jugada.getManoBanca().calcularValor()));
+		}
+
+	}
+	
+	
+	public void decidirGanadorBlackJack(){
+		if((puntuacionBanca<=21 && puntuacionBanca>puntuacionJugador) || (puntuacionBanca<=21 && puntuacionJugador >21)){
+			jugada.setGanador(null);
+			partida.añadeJugada(jugada);
+			partida.getJugador().setJugadasPerdidasBJ(partida.getJugador().getJugadasPerdidasBJ()+1);
+			JOptionPane.showMessageDialog(null, "Has perdido");
+		}
+		else if((puntuacionJugador<=21 && puntuacionBanca<puntuacionJugador) || (puntuacionBanca>21 && puntuacionJugador<=22)){
+			jugada.setGanador(jugador);
+			partida.añadeJugada(jugada);
+			partida.getJugador().setJugadasGanadasBJ(partida.getJugador().getJugadasGanadasBJ()+1);
+			JOptionPane.showMessageDialog(null, "Has ganado");
+		}
+		else{
+			jugada.setGanador(null);
+			partida.añadeJugada(jugada);
+			partida.getJugador().setJugadasEmpatadas(partida.getJugador().getJugadasEmpatadas()+1);
+			JOptionPane.showMessageDialog(null, "Has empatado");
+		}
+	}
+	
+	
+	
+public static void main(String args[]) throws ClassNotFoundException, IOException{
+		Visual v = new Visual();
+		v.setMenu();
+	}
+	
+	
+
+	
+}
